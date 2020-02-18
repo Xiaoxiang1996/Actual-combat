@@ -1,15 +1,17 @@
 <template>
-  
+  <div>
+
+  </div>
 </template>
 
-<script>
-
-export default {
-  name: 'App',
-  
-}
+<script type="text/ecmascript-6">
+  export default {
+    name :'app'
+  }
 </script>
 
-<style>
+<style scoped>
 
+ 
 </style>
+
