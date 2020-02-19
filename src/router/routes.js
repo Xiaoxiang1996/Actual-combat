@@ -3,6 +3,7 @@ import Sort from '../pages/Sort/Sort.vue'
 import Worth from '../pages/Worth/Worth.vue'
 import Shop from '../pages/Shop/Shop.vue'
 import Personal from '../pages/Personal/Personal.vue'
+import SearchList from '../pages/SearchList/SearchList.vue'
 
 export default [
     {
@@ -36,6 +37,13 @@ export default [
     {
         path: '/personal',
         component: Personal,
+        meta: {
+            isShowFooter:true
+        }
+    },
+    {
+        path: '/searchlist',
+        component: SearchList,
         meta: {
             isShowFooter:true
         }

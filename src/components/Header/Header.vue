@@ -4,10 +4,11 @@
         <img src="../../common/images/logo.png" alt="">
         <div class="searchInput">
             <i class="iconfont icon-soushuo"></i>
-            <input class="input" type="text" placeholder="搜索商品, 共20261款好物" placeholder-class="placeholder">
+            <span @click="toSearchList" class="input">搜索商品, 共20261款好物</span>
         </div>
         <div class="login">登录</div>
     </div>
+    <!-- 横向滑动 -->
     <div class="navContainer">
        <ul class="navList">
            <li>推荐</li>
@@ -95,7 +96,13 @@
           var mySwiper = document.querySelector('.swiper-container').swiper
           mySwiper.slideNext();
 
-      }
+      },
+      methods:{
+         toSearchList(){
+          this.$router.push('/SearchList')
+         }
+     }
+      
   }
 </script>
 
