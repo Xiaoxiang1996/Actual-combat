@@ -68,7 +68,7 @@
       &.active
         color $green
         span:first-child
-        margin 10px 0 
+        margin 5px 0 
         i
           font-size 42px
 </style>

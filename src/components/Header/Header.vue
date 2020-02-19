@@ -1,14 +1,14 @@
 <template>
   <div>
-      <div id="headerContainer">
-          <img src="../../common/images/logo.png" alt="">
-          <div class="searchInput">
-              <i class="iconfont icon-soushuo"></i>
-              <input class="input" type="text" placeholder="搜索商品, 共20261款好物" placeholder-class="placeholder">
-          </div>
-          <div class="login">登录</div>
-      </div>
-      <div class="navContainer">
+    <div id="headerContainer">
+        <img src="../../common/images/logo.png" alt="">
+        <div class="searchInput">
+            <i class="iconfont icon-soushuo"></i>
+            <input class="input" type="text" placeholder="搜索商品, 共20261款好物" placeholder-class="placeholder">
+        </div>
+        <div class="login">登录</div>
+    </div>
+    <div class="navContainer">
        <ul class="navList">
            <li>推荐</li>
            <li>居家生活</li>
@@ -20,13 +20,82 @@
            <li>数码家电</li>
            <li>全球特色</li>
       </ul>
-     </div>
-     <i class="iconfont icon-icon-arrow-down"></i>
+    </div>
+    <i class="iconfont icon-icon-arrow-down"></i>
+    <!-- 轮播图 -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="../../common/images/swiper/01.webp" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="../../common/images/swiper/2.webp" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="../../common/images/swiper/3.webp" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="../../common/images/swiper/4.webp" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="../../common/images/swiper/5.webp" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="../../common/images/swiper/6.webp" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="../../common/images/swiper/7.webp" alt="">
+          </div>
+        </div>
+        <div class="swiper-pagination">
+            <span class="swiper-pagination-bullet"></span>
+        </div>
+        
+    </div>
+    <!-- 轮播图下三个图标 -->
+    <div class="tescoIcon">
+       <div class="tesconItem">
+          <i class="iconfont icon-wangyi1"></i>
+          <span>网易自营品牌</span>
+       </div>
+       <div class="tesconItem">
+          <i class="iconfont icon-tianwuyou"></i>
+          <span>30天无忧退货</span>
+       </div>
+       <div class="tesconItem">
+          <i class="iconfont icon-tuikuan"></i>
+          <span>48小时极速退款</span>
+       </div>
+    </div>
+    <ShopList/>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import ShopList from '../ShopList/ShopList'
+  import BScorll from 'better-scroll'
+  import Swiper from 'swiper'
+  import 'swiper/css/swiper.min.css'
   export default {
+      components: {
+         ShopList
+      },
+      mounted(){
+          new BScorll('.navContainer',{
+            scrollX:true
+          })
+          new Swiper('.swiper-container',{
+              loop:true,
+              autoplay: true,
+              pagination:{
+                el:".swiper-pagination"
+              },
+          })
+          new Swiper('.swiper-container')
+          var mySwiper = document.querySelector('.swiper-container').swiper
+          mySwiper.slideNext();
+
+      }
   }
 </script>
 
@@ -78,13 +147,18 @@
     line-height 60px
     top 86px
 .navContainer
+    width 100%
     position relative
     height 60px
     line-height 60px
     display flex
     overflow hidden
-    padding 0 30px
+    
+    box-sizing border-box
     .navList
+        box-sizing border-box
+        padding 0 70px 0 30px
+        width calc(100vh-100px) 
         display flex
         font-size 28px
         white-space nowrap
@@ -103,4 +177,41 @@
             width 100%
             height 4px
             background #dd1a21
+.swiper-container
+ width 100%
+ height 370px
+ .swiper-wrapper
+  width 100%
+  height 370px
+  .swiper-slide
+   width 100%
+   height 370px
+   img 
+    width 100%
+    height 370px
+ .swiper-pagination
+    .swiper-pagination-bullet
+      width 40px
+      height 4px
+      background #fff
+      border-radius 0
+.tescoIcon
+   width 100%
+   height 72px
+   display flex
+   padding 0 30px
+   box-sizing border-box
+   align-items center
+   .tesconItem
+      width 228px
+      height 36px
+      display flex
+      align-items center
+      i 
+       font-size 32px
+       color #dd1a21
+      span  
+        font-size 24px
+        padding-left 8px
+        font-weight 400
 </style>
