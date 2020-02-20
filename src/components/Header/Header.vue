@@ -12,40 +12,15 @@
     <div class="navContainer">
        <ul class="navList">
            <li>推荐</li>
-           <li>居家生活</li>
-           <li>服饰鞋包</li>
-           <li>美食酒水</li>
-           <li>个护清洁</li>
-           <li>母婴亲子</li>
-           <li>运动旅行</li>
-           <li>数码家电</li>
-           <li>全球特色</li>
+           <li v-for="(slideItem,index) in slideList" :key="index">{{slideItem.name}}</li>
       </ul>
     </div>
     <i class="iconfont icon-icon-arrow-down"></i>
     <!-- 轮播图 -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="../../common/images/swiper/01.webp" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="../../common/images/swiper/2.webp" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="../../common/images/swiper/3.webp" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="../../common/images/swiper/4.webp" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="../../common/images/swiper/5.webp" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="../../common/images/swiper/6.webp" alt="">
-          </div>
-          <div class="swiper-slide">
-            <img src="../../common/images/swiper/7.webp" alt="">
+          <div class="swiper-slide" v-for="(item, index) in indexData.focusList" :key="index">
+            <img :src="item.picUrl" alt="">
           </div>
         </div>
         <div class="swiper-pagination">
@@ -73,6 +48,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import {mapState} from 'vuex'
   import ShopList from '../ShopList/ShopList'
   import BScorll from 'better-scroll'
   import Swiper from 'swiper'
@@ -82,9 +58,27 @@
          ShopList
       },
       mounted(){
+          //分发横向滑动
+          this.$store.dispatch('getSlideList')
+          this.$store.dispatch('getIndexDataList')
           new BScorll('.navContainer',{
             scrollX:true
           })
+      },
+      methods:{
+         toSearchList(){
+          this.$router.push('/SearchList')
+         }
+     },
+     computed:{
+       ...mapState({
+         slideList : state => state. slideList,
+         indexData :  state=>state.indexData
+       })
+     },
+     watch: {
+      indexData(){
+        this.$nextTick(() => {
           new Swiper('.swiper-container',{
               loop:true,
               autoplay: true,
@@ -95,13 +89,9 @@
           new Swiper('.swiper-container')
           var mySwiper = document.querySelector('.swiper-container').swiper
           mySwiper.slideNext();
-
-      },
-      methods:{
-         toSearchList(){
-          this.$router.push('/SearchList')
-         }
-     }
+        })
+      }
+    }
       
   }
 </script>
@@ -127,7 +117,7 @@
         line-height 54px
         font-size 28px
         color #666666
-        .icon-sousuo
+        .iconfont
             font-size 36px
             margin-right 10px
         .input

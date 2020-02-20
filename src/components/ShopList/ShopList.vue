@@ -1,57 +1,26 @@
 <template>
     <!-- 分类列表 -->
     <div id="shopList">
-      <div class="shopItem">
-         <ul class="shopping">
-           <li>
-             <img src="../../common/images/swiper/8.png" alt="">
-             <span>新品首发</span>
-           </li>
-           <li>
-             <img src="../../common/images/swiper/8.png" alt="">
-             <span>新品首发</span>
-           </li>
-           <li>
-             <img src="../../common/images/swiper/8.png" alt="">
-             <span>新品首发</span>
-           </li>
-           <li>
-             <img src="../../common/images/swiper/8.png" alt="">
-             <span>新品首发</span>
-           </li>
-           <li>
-             <img src="../../common/images/swiper/8.png" alt="">
-             <span>新品首发</span>
-           </li>
-         </ul>
-         <ul class="shopping">
-           <li>
-             <img src="../../common/images/swiper/8.png" alt="">
-             <span>新品首发</span>
-           </li>
-           <li>
-             <img src="../../common/images/swiper/8.png" alt="">
-             <span>新品首发</span>
-           </li>
-           <li>
-             <img src="../../common/images/swiper/8.png" alt="">
-             <span>新品首发</span>
-           </li>
-           <li>
-             <img src="../../common/images/swiper/8.png" alt="">
-             <span>新品首发</span>
-           </li>
-           <li>
-             <img src="../../common/images/swiper/8.png" alt="">
-             <span>新品首发</span>
-           </li>
-         </ul>
-      </div>
+      <ul v-if="indexData" class="shopItem">
+        <li v-for="(list,index) in indexData.kingKongList" :key="index">
+          <img :src="list.picUrl" alt="">
+          <span>{{list.text}}</span>
+        </li>
+      </ul>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
+import { mapState } from 'vuex'
   export default {
+    mounted(){
+      this.$store.dispatch('getIndexDataList')
+    },
+    computed:{
+      ...mapState({
+        indexData :  state=>state.indexData.kingKongModule
+      })
+    }
   }
 </script>
 
@@ -60,24 +29,23 @@
   width 100%
   height 373px
   .shopItem
-    width 100%
-    height 341px
-    .shopping
-     display flex
-     li
-      width 20%
+    display flex
+    flex-wrap wrap
+    li
+      width 110px
+      height 156px
       margin 10px 20px
       img 
-       width 110px
-       height 110px
-       margin-bottom 10px
+        width 110px
+        height 110px
+      //  margin-bottom 10px
       span 
-       display block
-       width 110px
-       height 36px
-       line-height 30px
-       font-size 24px 
-       text-align center 
-       color #333
+        display block
+        width 110px
+        height 36px
+        line-height 30px
+        font-size 24px 
+        text-align center 
+        color #333
  
 </style>

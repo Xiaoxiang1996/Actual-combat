@@ -65,6 +65,8 @@
       margin-top 20px
       display flex
       flex-direction column
+      .iconfont
+        font-size 35px
       &.active
         color $green
         span:first-child

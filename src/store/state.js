@@ -1,4 +1,5 @@
 export default {
     searchList:'',
-    slideList : []
+    slideList : [],
+    indexData:''
 }

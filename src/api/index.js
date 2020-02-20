@@ -9,3 +9,6 @@ export const getSlideList = ()=>ajax({
   url:'/indexCateModule',
   method:'GET'
 })
+export const getIndexDataList = ()=>ajax({
+  url:'/indexList'
+})
