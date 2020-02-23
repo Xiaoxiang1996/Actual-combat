@@ -12,3 +12,12 @@ export const getSlideList = ()=>ajax({
 export const getIndexDataList = ()=>ajax({
   url:'/indexList'
 })
+export const getSortList = ()=>ajax({ //分类导航数据
+  url: '/cateNavDatas',
+})
+export const getSortData = ()=>ajax({ //分类页面数据
+  url: '/cateLists',
+})
+export const getWorthyNav = () =>ajax({
+  url:'/worthnav'
+})

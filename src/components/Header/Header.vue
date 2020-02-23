@@ -43,24 +43,24 @@
           <span>48小时极速退款</span>
        </div>
     </div>
-    <ShopList/>
+    <!-- <ShopList/> -->
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import {mapState} from 'vuex'
-  import ShopList from '../ShopList/ShopList'
+  // import ShopList from '../ShopList/ShopList'
   import BScorll from 'better-scroll'
   import Swiper from 'swiper'
   import 'swiper/css/swiper.min.css'
   export default {
-      components: {
-         ShopList
-      },
+      // components: {
+      //    ShopList
+      // },
       mounted(){
           //分发横向滑动
-          this.$store.dispatch('getSlideList')
-          this.$store.dispatch('getIndexDataList')
+          // this.$store.dispatch('getSlideList')
+          // this.$store.dispatch('getIndexDataList')
           new BScorll('.navContainer',{
             scrollX:true
           })
@@ -86,9 +86,9 @@
                 el:".swiper-pagination"
               },
           })
-          new Swiper('.swiper-container')
-          var mySwiper = document.querySelector('.swiper-container').swiper
-          mySwiper.slideNext();
+          // new Swiper('.swiper-container')
+          // var mySwiper = document.querySelector('.swiper-container').swiper
+          // mySwiper.slideNext();
         })
       }
     }
