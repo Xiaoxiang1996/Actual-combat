@@ -21,3 +21,6 @@ export const getSortData = ()=>ajax({ //分类页面数据
 export const getWorthyNav = () =>ajax({
   url:'/worthnav'
 })
+export const getWorthyList = () =>ajax({
+  url:'/worthlist'
+})

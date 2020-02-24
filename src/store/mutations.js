@@ -1,4 +1,4 @@
-import {SAVE_SEARCHLIST,SAVE_HORIZONTAL,SAVE_INDEXDATA,SAVE_LIST,SAVE_DATA,SAVE_WORTHYNAV} from './mutations-type'
+import {SAVE_SEARCHLIST,SAVE_HORIZONTAL,SAVE_INDEXDATA,SAVE_LIST,SAVE_DATA,SAVE_WORTHYNAV,SAVE_WORTHYLIST} from './mutations-type'
 export default{
   [SAVE_SEARCHLIST](state,searchItem){
       state.searchList = searchItem
@@ -15,7 +15,11 @@ export default{
   [SAVE_DATA](state,sortdata){//分类页面数据
     state.sortdata=sortdata
   },
-  [SAVE_WORTHYNAV](state,worthyNav){
+  [SAVE_WORTHYNAV](state,worthyNav){//值得买头部
     state.worthyNav = worthyNav
+  },
+  [SAVE_WORTHYLIST](state,worthyList){//值得买内容
+    state.worthyList = worthyList
+    console.log(worthyList)
   }
 }

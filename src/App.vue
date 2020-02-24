@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="root">
      <router-view></router-view>
      <FooterGuide v-show="$route.meta.isShowFooter"/>
   </div>
@@ -16,7 +16,10 @@
 </script>
 
 <style >
-
+#root{
+  width: 750px;
+  overflow: hidden
+}
  
 </style>
 

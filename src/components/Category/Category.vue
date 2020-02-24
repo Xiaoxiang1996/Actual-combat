@@ -58,7 +58,7 @@
         <div class="specialDiscountTitle">
           <div class="title-left">
             <span>限时购</span>
-            <div class="dateNow">
+            <div class="dateNow" >
               <div class="date">{{hou}}</div>
               <span>:</span>
               <div class="date">{{min}}</div>
@@ -150,6 +150,9 @@
           min:0,
           sec:0,
         }
+      },
+      mounted(){
+        // this.time()
       },
       methods:{
         time(){
